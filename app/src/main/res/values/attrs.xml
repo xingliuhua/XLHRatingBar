@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="XlHRatingBar">
+        <attr name="starCount" format="integer" />
+        <attr name="canEdit" format="boolean" />
+        <attr name="widthAndHeight" format="dimension" />
+        <attr name="dividerWidth" format="dimension" />
+        <attr name="countSelected" format="integer" />
+        <attr name="stateResId" format="reference" />
+        <attr name="differentSize" format="boolean" />
+    </declare-styleable>
+</resources>
