@@ -3,7 +3,7 @@
 ---------
 ##在xml布局文件中使用：  
 ```xml
-  <com.example.xlhratingbar.XLHRatingBar
+  <com.example.xlhratingbar_lib.XLHRatingBar
     xmlns:lxhRatingBar="http://schemas.android.com/apk/res-auto"
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
