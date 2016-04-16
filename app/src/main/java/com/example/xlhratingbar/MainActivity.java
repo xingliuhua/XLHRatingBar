@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import com.example.xlhratingbar_lib.XLHRatingBar;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -17,8 +19,10 @@ public class MainActivity extends AppCompatActivity {
         XLHRatingBar xlhRatingBar3 = (XLHRatingBar) findViewById(R.id.ratingBar3);
         xlhRatingBar3.setCountSelected(1);
         final TextView tvResult = (TextView) findViewById(R.id.tv_result);
-        XLHRatingBar xlhRatingBar4 = (XLHRatingBar) findViewById(R.id.ratingBar4);
-        xlhRatingBar4.setOnRatingChangeListener(new XLHRatingBar.OnRatingChangeListener() {
+        XLHRatingBar ratingBar = (XLHRatingBar) findViewById(R.id.ratingBar4);
+        ratingBar.setCountNum(5);
+        ratingBar.setCountSelected(1);
+        ratingBar.setOnRatingChangeListener(new XLHRatingBar.OnRatingChangeListener() {
             @Override
             public void onChange(int countSelected) {
                 tvResult.setText(countSelected + "");

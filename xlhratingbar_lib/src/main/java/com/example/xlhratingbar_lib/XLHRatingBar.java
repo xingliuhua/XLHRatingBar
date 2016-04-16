@@ -1,4 +1,4 @@
-package com.example.xlhratingbar;
+package com.example.xlhratingbar_lib;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 
+import com.example.xlhratingbar.UnitUtil;
+
 /**
  * 星级评分
  *
@@ -18,12 +20,12 @@ import android.widget.LinearLayout;
  */
 public class XLHRatingBar extends LinearLayout {
     private int countNum;// 共有几个星星
-    private int countSelected;//当前选中了几个星星
-    private int stateResId;//不同选择状态对应图标
-    private float widthAndHeight;//单个星星的大小
-    private float dividerWidth;//星星间距
-    private boolean canEdit;//可以点击选择
-    private boolean differentSize;//不同大小，只有总数为奇数时有效
+    private int countSelected;
+    private int stateResId;
+    private float widthAndHeight;
+    private float dividerWidth;
+    private boolean canEdit;
+    private boolean differentSize;
 
     public XLHRatingBar(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -149,9 +151,9 @@ public class XLHRatingBar extends LinearLayout {
 
     public interface OnRatingChangeListener {
         /**
-         * ratingBar选中状态发生改变
          *
-         * @param countSelected 当前选中的个数
+         *
+         * @param countSelected the count of star selected
          */
         void onChange(int countSelected);
     }
