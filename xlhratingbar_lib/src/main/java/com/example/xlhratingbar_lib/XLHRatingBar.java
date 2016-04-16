@@ -101,6 +101,9 @@ public class XLHRatingBar extends LinearLayout {
             }
             addView(cb, layoutParams);
             cb.setButtonDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+            if(stateResId==-1){
+                stateResId=R.drawable.comment_ratingbar_selector;
+            }
             cb.setBackgroundResource(stateResId);
             if (i + 1 <= countSelected) {
                 cb.setChecked(true);
