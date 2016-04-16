@@ -47,5 +47,12 @@
  ```
  <br>附上效果图一张<br>
  ![](https://github.com/xingliuhua/XLHRatingBar/raw/master/result.png)<br>
-
+----
+##引用
+gradle dependency<br>
+```xml
+dependencies {
+     compile 'com.xingliuhua:xlhratingbar_lib:1.0.1'
+}
+ ```
 
