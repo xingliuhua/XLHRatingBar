@@ -4,17 +4,17 @@
 ##在xml布局文件中使用：  
 ```xml
   <com.example.xlhratingbar_lib.XLHRatingBar
-    xmlns:lxhRatingBar="http://schemas.android.com/apk/res-auto"
+    xmlns:xlhRatingBar="http://schemas.android.com/apk/res-auto"
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        lxhRatingBar:canEdit="true"
-        lxhRatingBar:differentSize="true"
-        lxhRatingBar:dividerWidth="5dp"
-        lxhRatingBar:countSelected="2"
-        lxhRatingBar:starCount="5"
-        lxhRatingBar:stateResId="@drawable/comment_ratingbar_selector"
-        lxhRatingBar:widthAndHeight="50dp"
+        xlhRatingBar:canEdit="true"
+        xlhRatingBar:differentSize="true"
+        xlhRatingBar:dividerWidth="5dp"
+        xlhRatingBar:countSelected="2"
+        xlhRatingBar:starCount="5"
+        xlhRatingBar:stateResId="@drawable/comment_ratingbar_selector"
+        xlhRatingBar:widthAndHeight="50dp"
         />
  ```
  其定义属性中：<br>
@@ -47,5 +47,12 @@
  ```
  <br>附上效果图一张<br>
  ![](https://github.com/xingliuhua/XLHRatingBar/raw/master/result.png)<br>
-
+----
+##引用
+gradle dependency<br>
+```xml
+dependencies {
+     compile 'com.xingliuhua:xlhratingbar_lib:1.0.1'
+}
+ ```
 
