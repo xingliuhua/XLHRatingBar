@@ -155,8 +155,7 @@ public class XLHRatingBar extends LinearLayout {
     public interface OnRatingChangeListener {
         /**
          *
-         *
-         * @param countSelected the count of star selected
+         * @param countSelected 星星选中的个数
          */
         void onChange(int countSelected);
     }
