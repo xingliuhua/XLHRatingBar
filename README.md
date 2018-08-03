@@ -1,7 +1,7 @@
 # XLHRatingBar
 自定义Ratingbar，与系统提供的RatingBar相比可更方便指定每个星星的图标、大小及各个星星的间距，支持监听选中状态的变化
 ---------
-##在xml布局文件中使用：  
+## 在xml布局文件中使用：  
 ```xml
   <com.example.xlhratingbar_lib.XLHRatingBar
     xmlns:xlhRatingBar="http://schemas.android.com/apk/res-auto"
@@ -33,7 +33,7 @@
  ```
    
    
- ##在代码中使用：
+ ## 在代码中使用：
  ```java
   XLHRatingBar ratingBar = (XLHRatingBar) findViewById(R.id.ratingBar);
         ratingBar.setCountNum(5);
@@ -48,7 +48,7 @@
  <br>附上效果图一张<br>
  ![](https://github.com/xingliuhua/XLHRatingBar/raw/master/result.png)<br>
 ----
-##引用
+## 引用
 gradle dependency<br>
 ```xml
 dependencies {
