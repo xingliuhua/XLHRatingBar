@@ -2,7 +2,8 @@ package com.example.xlhratingbar;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.Toast;
 
 import com.example.xlhratingbar_lib.XLHRatingBar;
 
@@ -16,16 +17,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        XLHRatingBar xlhRatingBar3 = (XLHRatingBar) findViewById(R.id.ratingBar3);
-        xlhRatingBar3.setCountSelected(1);
-        final TextView tvResult = (TextView) findViewById(R.id.tv_result);
-        XLHRatingBar ratingBar = (XLHRatingBar) findViewById(R.id.ratingBar4);
-        ratingBar.setCountNum(5);
-        ratingBar.setCountSelected(1);
-        ratingBar.setOnRatingChangeListener(new XLHRatingBar.OnRatingChangeListener() {
+        final XLHRatingBar xlhRatingBar = (XLHRatingBar) findViewById(R.id.ratingBar);
+        xlhRatingBar.setNumStars(8);
+        xlhRatingBar.setRating(5);
+        xlhRatingBar.setRatingView(new SimpleRatingView5());
+        xlhRatingBar.setOnRatingChangeListener(new XLHRatingBar.OnRatingChangeListener() {
             @Override
-            public void onChange(int countSelected) {
-                tvResult.setText(countSelected + "");
+            public void onChange(float rating, int numStars) {
+                Toast.makeText(getApplicationContext(), "rating:" + rating, Toast.LENGTH_SHORT).show();
+            }
+        });
+        findViewById(R.id.btn_get_rating).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "rating:" + xlhRatingBar.getRating(), Toast.LENGTH_SHORT).show();
             }
         });
     }

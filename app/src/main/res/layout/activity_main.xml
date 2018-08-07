@@ -1,89 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:divider="@color/colorPrimary"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:showDividers="middle"
     >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="不可编辑："/>
 
     <com.example.xlhratingbar_lib.XLHRatingBar
-        xmlns:lxhRatingBar="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/ratingBar3"
-        android:layout_width="wrap_content"
+
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        lxhRatingBar:canEdit="false"
-        lxhRatingBar:countSelected="3"
-        lxhRatingBar:differentSize="true"
-        lxhRatingBar:dividerWidth="5dp"
-        lxhRatingBar:starCount="2"
-        lxhRatingBar:stateResId="@drawable/comment_ratingbar_selector"
-        lxhRatingBar:widthAndHeight="20dp"/>
+        app:numStars="5"
+        app:rating="2.5"
+        app:ratingViewClass="com.example.xlhratingbar.SimpleRatingView"
+        />
 
     <com.example.xlhratingbar_lib.XLHRatingBar
-        xmlns:lxhRatingBar="http://schemas.android.com/apk/res-auto"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        lxhRatingBar:canEdit="false"
-        lxhRatingBar:countSelected="3"
-        lxhRatingBar:dividerWidth="5dp"
-        lxhRatingBar:starCount="3"
-        lxhRatingBar:stateResId="@drawable/comment_ratingbar_selector"
-        lxhRatingBar:widthAndHeight="25dp"/>
+        app:numStars="5"
+        app:rating="2.5"
+        app:ratingViewClass="com.example.xlhratingbar.SimpleRatingView2"
+        />
 
     <com.example.xlhratingbar_lib.XLHRatingBar
-        xmlns:lxhRatingBar="http://schemas.android.com/apk/res-auto"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        lxhRatingBar:canEdit="false"
-        lxhRatingBar:countSelected="2"
-        lxhRatingBar:dividerWidth="5dp"
-        lxhRatingBar:starCount="4"
-        lxhRatingBar:stateResId="@drawable/comment_ratingbar_selector"
-        lxhRatingBar:widthAndHeight="30dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="可编辑："/>
+        app:numStars="5"
+        app:rating="2.5"
+        app:ratingViewClass="com.example.xlhratingbar.SimpleRatingView3"
+        />
 
     <com.example.xlhratingbar_lib.XLHRatingBar
-        xmlns:lxhRatingBar="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/ratingBar4"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        lxhRatingBar:canEdit="true"
-        lxhRatingBar:differentSize="true"
-        lxhRatingBar:dividerWidth="5dp"
-        lxhRatingBar:starCount="5"
-        lxhRatingBar:stateResId="@drawable/comment_ratingbar_selector"
-        lxhRatingBar:widthAndHeight="50dp"
+        android:gravity="center_vertical"
+        app:numStars="5"
+        app:rating="5"
+        app:ratingViewClass="com.example.xlhratingbar.SimpleRatingView4"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-
-        <TextView
-            android:layout_width="wrap_content"
+        <com.example.xlhratingbar_lib.XLHRatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="当前选中个数："/>
-
-        <TextView
-            android:id="@+id/tv_result"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             />
+
+        <Button
+            android:id="@+id/btn_get_rating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="get rating"/>
     </LinearLayout>
+
+
 </LinearLayout>

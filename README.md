@@ -11,7 +11,7 @@
         xlhRatingBar:canEdit="true"
         xlhRatingBar:differentSize="true"
         xlhRatingBar:dividerWidth="5dp"
-        xlhRatingBar:countSelected="2"
+        xlhRatingBar:rating="2"
         xlhRatingBar:starCount="5"
         xlhRatingBar:stateResId="@drawable/comment_ratingbar_selector"
         xlhRatingBar:widthAndHeight="50dp"
@@ -23,7 +23,7 @@
  * dividerWidth 单个星星之间的间隔
  * starCount 星星的总个数
  * widthAndHeight 星星的大小
- * countSelected 已经选择的星星的个数
+ * rating 已经选择的星星的个数
  * stateResId单个星星的不同状态,在drawable下：</br>
  ```xml
  <selector xmlns:android="http://schemas.android.com/apk/res/android">
@@ -40,8 +40,8 @@
         ratingBar.setCountSelected(1);
         ratingBar.setOnRatingChangeListener(new XLHRatingBar.OnRatingChangeListener() {
             @Override
-            public void onChange(int countSelected) {
-                tvResult.setText(countSelected + "");
+            public void onChange(int rating) {
+                tvResult.setText(rating + "");
             }
         });
  ```
