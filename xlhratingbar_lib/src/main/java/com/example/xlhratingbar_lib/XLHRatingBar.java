@@ -81,7 +81,6 @@ public class XLHRatingBar extends LinearLayout {
                     if (!isEnabled()) {
                         return false;
                     }
-                    //判断手指离开的位置获取已选择的数量
                     if (event.getAction() != MotionEvent.ACTION_UP) {
                         return true;
                     }
