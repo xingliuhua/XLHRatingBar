@@ -1,58 +1,144 @@
-# XLHRatingBar
-自定义Ratingbar，与系统提供的RatingBar相比可更方便指定每个星星的图标、大小及各个星星的间距，支持监听选中状态的变化
----------
-## 在xml布局文件中使用：  
-```xml
-  <com.example.xlhratingbar_lib.XLHRatingBar
-    xmlns:xlhRatingBar="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/ratingBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        xlhRatingBar:canEdit="true"
-        xlhRatingBar:differentSize="true"
-        xlhRatingBar:dividerWidth="5dp"
-        xlhRatingBar:rating="2"
-        xlhRatingBar:starCount="5"
-        xlhRatingBar:stateResId="@drawable/comment_ratingbar_selector"
-        xlhRatingBar:widthAndHeight="50dp"
-        />
- ```
- 其定义属性中：<br>
- * canEdit true 可以点击选择不同的星星，默认false
- * differentSize 星星的大小可以不同（中间的最大，两端的依次变小且星星总数为奇数时才有效）
- * dividerWidth 单个星星之间的间隔
- * starCount 星星的总个数
- * widthAndHeight 星星的大小
- * rating 已经选择的星星的个数
- * stateResId单个星星的不同状态,在drawable下：</br>
- ```xml
- <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/evaluation_order_star_press" android:state_checked="true"></item>
-    <item android:drawable="@drawable/evaluation_order_star" android:state_checked="false"></item>
-</selector>
- ```
-   
-   
- ## 在代码中使用：
- ```java
-  XLHRatingBar ratingBar = (XLHRatingBar) findViewById(R.id.ratingBar);
-        ratingBar.setCountNum(5);
-        ratingBar.setCountSelected(1);
-        ratingBar.setOnRatingChangeListener(new XLHRatingBar.OnRatingChangeListener() {
-            @Override
-            public void onChange(int rating) {
-                tvResult.setText(rating + "");
-            }
-        });
- ```
- <br>附上效果图一张<br>
- ![](https://github.com/xingliuhua/XLHRatingBar/raw/master/result.png)<br>
-----
-## 引用
-gradle dependency<br>
-```xml
-dependencies {
-     compile 'com.xingliuhua:xlhratingbar_lib:1.0.1'
-}
- ```
+netstatelayout extend XLHRatingBar.you can custom star style
 
+<img src="https://github.com/xingliuhua/XLHRatingBar/20180807210646.png" height="330" width="190" >
+
+
+### How to use
+#### add the library as dependency
+
+Add the library as dependency to your build.gradle file.
+```gradle
+dependencies {
+	//other dependencies...
+	compile 'com.xingliuhua:xlhratingbar_lib:2.0'
+}
+```
+#### implement interface
+implement IRatingViewand  to custom your star UI.of course,you can see SimpleRatingView
+```java
+public interface IRatingView {
+    /**
+     * get image resource state by posi and state
+     *
+     * @param posi
+     * @param state
+     * @return
+     */
+    int getStateRes(int posi, int state);
+
+    /**
+     * @param rating
+     * @param numStars
+     * @param position from 0
+     * @return
+     */
+    int getCurrentState(float rating, int numStars, int position);
+
+    /**
+     * get a ImageView,you can set LinearLayout.LayoutParams for your ImageView
+     *
+     * @param context
+     * @param posi    from 0
+     * @return
+     */
+    ImageView getRatingView(Context context,int numStars, int posi);
+
+    /**
+     * not selected
+     */
+    public static final int STATE_NONE = 0;
+    /**
+     * select half
+     */
+    public static final int STATE_HALF = 1;
+    /**
+     * selected
+     */
+    public static final int STATE_FULL = 2;
+
+}
+```
+SimpleRatingView:
+```java
+public class SimpleRatingView implements IRatingView {
+
+    @Override
+    public int getStateRes(int posi, int state) {
+        int id = R.drawable.ic_star_border_red_400_36dp;
+        switch (state) {
+            case STATE_NONE:
+                id = R.drawable.ic_star_border_red_400_36dp;
+                break;
+            case STATE_HALF:
+                id = R.drawable.ic_star_half_red_400_36dp;
+                break;
+            case STATE_FULL:
+                id = R.drawable.ic_star_red_400_36dp;
+                break;
+            default:
+                break;
+        }
+        return id;
+    }
+
+    @Override
+    public int getCurrentState(float rating, int numStars, int position) {
+        position++;
+        float dis = position - rating;
+        if (dis <= 0) {
+            return STATE_FULL;
+        }
+        if (dis == 0.5) {
+            return STATE_HALF;
+        }
+        if (dis > 0.5) {
+            return STATE_NONE;
+        }
+        return 0;
+    }
+
+
+    @Override
+    public ImageView getRatingView(Context context, int numStars, int posi) {
+        ImageView imageView = new ImageView(context);
+        return imageView;
+    }
+}
+```
+#### use XLHRatingBar in xml
+```xml
+<com.example.xlhratingbar_lib.XLHRatingBar
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        app:numStars="5"
+        app:rating="5"
+        app:ratingViewClass="com.example.xlhratingbar.SimpleRatingView"
+        />
+```
+you can set star num ,rating and ratingView class name
+#### set view
+you can set rating view by code or xml
+set view by code:
+```java
+ xlhRatingBar.setRatingView(new SimpleRatingView5());
+```
+other:
+
+```java
+ xlhRatingBar.setNumStars(7);
+ xlhRatingBar.setRating(5);
+ xlhRatingBar.setOnRatingChangeListener(new XLHRatingBar.OnRatingChangeListener() {
+            @Override
+            public void onChange(float rating, int numStars) {
+                Toast.makeText(getApplicationContext(), "rating:" + rating, Toast.LENGTH_SHORT).show();
+            }
+ });
+findViewById(R.id.btn_get_rating).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "rating:" + xlhRatingBar.getRating(), Toast.LENGTH_SHORT).show();
+            }
+});
+```

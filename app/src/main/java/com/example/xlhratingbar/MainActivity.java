@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         final XLHRatingBar xlhRatingBar = (XLHRatingBar) findViewById(R.id.ratingBar);
-        xlhRatingBar.setNumStars(8);
+        xlhRatingBar.setNumStars(7);
         xlhRatingBar.setRating(5);
         xlhRatingBar.setRatingView(new SimpleRatingView5());
         xlhRatingBar.setOnRatingChangeListener(new XLHRatingBar.OnRatingChangeListener() {
