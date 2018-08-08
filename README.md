@@ -10,7 +10,7 @@ Add the library as dependency to your build.gradle file.
 ```gradle
 dependencies {
 	//other dependencies...
-	compile 'com.xingliuhua:xlhratingbar_lib:2.0'
+	compile 'com.xingliuhua:xlhratingbar_lib:2.1'
 }
 ```
 ### implement interface
