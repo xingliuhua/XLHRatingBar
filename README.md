@@ -1,10 +1,10 @@
 netstatelayout extend XLHRatingBar.you can custom star style
 
-<img src="https://github.com/xingliuhua/XLHRatingBar/20180807210646.png" height="330" width="190" >
+<img src="https://github.com/xingliuhua/XLHRatingBar/blob/master/20180807210646.png" height="330" width="190" >
 
 
-### How to use
-#### add the library as dependency
+## How to use
+### add the library as dependency
 
 Add the library as dependency to your build.gradle file.
 ```gradle
@@ -13,7 +13,7 @@ dependencies {
 	compile 'com.xingliuhua:xlhratingbar_lib:2.0'
 }
 ```
-#### implement interface
+### implement interface
 implement IRatingViewand  to custom your star UI.of course,you can see SimpleRatingView
 ```java
 public interface IRatingView {
@@ -105,7 +105,7 @@ public class SimpleRatingView implements IRatingView {
     }
 }
 ```
-#### use XLHRatingBar in xml
+### use XLHRatingBar in xml
 ```xml
 <com.example.xlhratingbar_lib.XLHRatingBar
 		xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -118,7 +118,7 @@ public class SimpleRatingView implements IRatingView {
         />
 ```
 you can set star num ,rating and ratingView class name
-#### set view
+### set view
 you can set rating view by code or xml
 set view by code:
 ```java
