@@ -14,7 +14,7 @@ public class SimpleRatingView3 extends SimpleRatingView {
     @Override
     public ImageView getRatingView(Context context, int numStars, int posi) {
         ImageView imageView = new ImageView(context);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, posi + 1);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, posi*2 + 1);
         imageView.setLayoutParams(params);
         return imageView;
     }

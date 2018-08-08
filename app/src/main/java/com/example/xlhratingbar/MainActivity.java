@@ -17,11 +17,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        final XLHRatingBar xlhRatingBar = (XLHRatingBar) findViewById(R.id.ratingBar);
-        xlhRatingBar.setNumStars(7);
-        xlhRatingBar.setRating(5);
-        xlhRatingBar.setRatingView(new SimpleRatingView5());
-        xlhRatingBar.setOnRatingChangeListener(new XLHRatingBar.OnRatingChangeListener() {
+        XLHRatingBar xlhRatingBar3 = (XLHRatingBar) findViewById(R.id.ratingBar3);
+        xlhRatingBar3.setEnabled(false);
+
+        final XLHRatingBar xlhRatingBar5 = (XLHRatingBar) findViewById(R.id.ratingBar5);
+        xlhRatingBar5.setNumStars(7);
+        xlhRatingBar5.setRating(3);
+        xlhRatingBar5.setRatingView(new SimpleRatingView5());
+        xlhRatingBar5.setOnRatingChangeListener(new XLHRatingBar.OnRatingChangeListener() {
             @Override
             public void onChange(float rating, int numStars) {
                 Toast.makeText(getApplicationContext(), "rating:" + rating, Toast.LENGTH_SHORT).show();
@@ -30,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_get_rating).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "rating:" + xlhRatingBar.getRating(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "rating:" + xlhRatingBar5.getRating(), Toast.LENGTH_SHORT).show();
             }
         });
     }
