@@ -84,10 +84,18 @@ public class XLHRatingBar extends LinearLayout {
                     if (event.getAction() != MotionEvent.ACTION_UP) {
                         return true;
                     }
-                    if (event.getX() < v.getWidth() / 2f) {
-                        mRating = finalI - 0.5f;
+                    if (getOrientation() == LinearLayout.HORIZONTAL) {
+                        if (event.getX() < v.getWidth() / 2f) {
+                            mRating = finalI - 0.5f;
+                        } else {
+                            mRating = finalI;
+                        }
                     } else {
-                        mRating = finalI;
+                        if (event.getY() < v.getHeight() / 2f) {
+                            mRating = finalI - 0.5f;
+                        } else {
+                            mRating = finalI;
+                        }
                     }
                     resetRatingViewRes();
                     if (mOnRatingChangeListener != null) {
