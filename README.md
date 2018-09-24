@@ -1,4 +1,4 @@
-netstatelayout extend XLHRatingBar.you can custom star style
+you can custom star style
 
 <img src="https://github.com/xingliuhua/XLHRatingBar/blob/master/20180807210646.png" height="330" width="190" >
 
