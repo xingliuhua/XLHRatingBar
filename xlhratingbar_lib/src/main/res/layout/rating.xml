@@ -7,7 +7,8 @@
     <ImageView
         android:id="@+id/iv_star"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" />
 
     <TextView
         android:id="@+id/tv_state"
