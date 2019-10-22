@@ -114,7 +114,7 @@ public class SimpleRatingView implements IRatingView {
         android:gravity="center_vertical"
         app:numStars="5"
         app:rating="5"
-        app:ratingViewClass="com.example.xlhratingbar.SimpleRatingView"
+        app:ratingViewClass="com.example.xlhratingbar_lib.SimpleRatingView"
         />
 ```
 you can set star num ,rating and ratingView class name

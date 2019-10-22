@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
     <LinearLayout
+        android:id="@+id/ll_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="@color/colorPrimary"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        android:showDividers="middle"
-        >
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:showDividers="middle">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,16 +25,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="step size 0.5"/>
+                android:text="SimpleRatingView:step size 0.5" />
 
 
             <com.example.xlhratingbar_lib.XLHRatingBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:numStars="5"
-                app:rating="2.5"
-                app:ratingViewClass="com.example.xlhratingbar.SimpleRatingView"
-                />
+                app:rating="2.5" />
         </LinearLayout>
 
         <LinearLayout
@@ -46,15 +43,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="step size 1"/>
+                android:text="MyRatingView1:step size 1" />
+
 
             <com.example.xlhratingbar_lib.XLHRatingBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:numStars="5"
-                app:rating="2.5"
-                app:ratingViewClass="com.example.xlhratingbar.SimpleRatingView2"
-                />
+                app:rating="2"
+                app:ratingViewClass="com.example.xlhratingbar.MyRatingView1" />
         </LinearLayout>
 
         <LinearLayout
@@ -65,56 +62,54 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:enabled="false"
-                android:text="enable false"/>
+                android:text="MyRatingView2:bigger and bigger" />
+
 
             <com.example.xlhratingbar_lib.XLHRatingBar
-                android:id="@+id/ratingBar3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:numStars="4"
-                app:rating="2.5"
-                app:ratingViewClass="com.example.xlhratingbar.SimpleRatingView3"
-                />
+                app:numStars="5"
+                app:rating="2"
+                app:ratingViewClass="com.example.xlhratingbar.MyRatingView2" />
         </LinearLayout>
-
-        <com.example.xlhratingbar_lib.XLHRatingBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            app:numStars="5"
-            app:rating="5"
-            app:ratingViewClass="com.example.xlhratingbar.SimpleRatingView4"
-            />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MyRatingView3:different sizes" />
+
 
             <com.example.xlhratingbar_lib.XLHRatingBar
-                android:id="@+id/ratingBar5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:numStars="5"
                 android:gravity="center_vertical"
-                />
-
-            <Button
-                android:id="@+id/btn_get_rating"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="get rating"/>
+                app:rating="2"
+                app:ratingViewClass="com.example.xlhratingbar.MyRatingView3" />
         </LinearLayout>
 
-        <com.example.xlhratingbar_lib.XLHRatingBar
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:numStars="5"
-            app:rating="2.5"
-            app:ratingViewClass="com.example.xlhratingbar.SimpleRatingView6"
-            />
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MyRatingView4:vertical" />
+
+
+            <com.example.xlhratingbar_lib.XLHRatingBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:numStars="3" />
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>
