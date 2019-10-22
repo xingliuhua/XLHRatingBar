@@ -15,7 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 星级评分
+ * you can use it in xml or java code.
+ *
+ *
  *
  * @author xingliuhua
  */
@@ -163,6 +165,10 @@ public class XLHRatingBar extends LinearLayout {
         initView();
     }
 
+    /**
+     *  can not change rating by screen
+     * @param enabled
+     */
     @Override
     public void setEnabled(boolean enabled) {
         super.setEnabled(enabled);
@@ -183,6 +189,9 @@ public class XLHRatingBar extends LinearLayout {
         }
     }
 
+    /**
+     * you can get rating change event
+     */
     private OnRatingChangeListener mOnRatingChangeListener;
 
     public OnRatingChangeListener getOnRatingChangeListener() {
@@ -194,7 +203,11 @@ public class XLHRatingBar extends LinearLayout {
     }
 
     public interface OnRatingChangeListener {
-
+        /**
+         *
+         * @param rating from 0
+         * @param numStars star item sum count
+         */
         void onChange(float rating, int numStars);
     }
 }

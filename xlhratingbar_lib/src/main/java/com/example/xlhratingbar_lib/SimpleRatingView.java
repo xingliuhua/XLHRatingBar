@@ -8,6 +8,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
+ * simple ratingView. you can custom your view by implements IRatingView.
+ *
  * Created by xingliuhua on 2018/8/7.
  */
 
