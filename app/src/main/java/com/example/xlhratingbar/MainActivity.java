@@ -2,6 +2,7 @@ package com.example.xlhratingbar;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -19,14 +20,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-       LinearLayout llContainer= (LinearLayout) findViewById(R.id.ll_container);
+        LinearLayout llContainer = (LinearLayout) findViewById(R.id.ll_container);
         XLHRatingBar xlhRatingBar = new XLHRatingBar(this);
         xlhRatingBar.setNumStars(3);
         xlhRatingBar.setRatingViewClassName("com.example.xlhratingbar.MyRatingView4");
         xlhRatingBar.setOnRatingChangeListener(new XLHRatingBar.OnRatingChangeListener() {
             @Override
             public void onChange(float rating, int numStars) {
-                Toast.makeText(getApplicationContext(), "rating:"+rating, 0).show();
+                Log.e("MainActivity", "rating:" + rating);
             }
         });
         llContainer.addView(xlhRatingBar);

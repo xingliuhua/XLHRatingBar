@@ -68,6 +68,14 @@ public class MyRatingView4 implements IRatingView {
     public ViewGroup getRatingView(Context context, int position, int starNums) {
         View inflate = View.inflate(context, R.layout.my_rating4, null);
         mViewGroup = (ViewGroup) inflate;
+        switch (position) {
+            case 0:
+                mViewGroup.findViewById(R.id.view_left).setVisibility(View.INVISIBLE);
+                break;
+            case 2:
+                mViewGroup.findViewById(R.id.view_right).setVisibility(View.INVISIBLE);
+                break;
+        }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutParams.weight = 1;
         mViewGroup.setLayoutParams(layoutParams);
