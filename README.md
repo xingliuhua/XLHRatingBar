@@ -1,6 +1,6 @@
 you can custom star item style. eg:image,text and so on.
 
-<img src="https://github.com/xingliuhua/XLHRatingBar/blob/master/screenshot_1571735043111.png" height="330" width="190" >
+<img src="https://github.com/xingliuhua/XLHRatingBar/blob/master/screenshot_1571735043111.jpg" height="330" width="190" >
 
 
 ## How to use
