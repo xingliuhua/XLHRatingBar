@@ -1,6 +1,6 @@
-you can custom star style
+you can custom star item style. eg:image,text and so on.
 
-<img src="https://github.com/xingliuhua/XLHRatingBar/blob/master/20180807210646.png" height="330" width="190" >
+<img src="https://github.com/xingliuhua/XLHRatingBar/blob/master/screenshot_1571735043111.png" height="330" width="190" >
 
 
 ## How to use
@@ -10,38 +10,29 @@ Add the library as dependency to your build.gradle file.
 ```gradle
 dependencies {
 	//other dependencies...
-	compile 'com.xingliuhua:xlhratingbar_lib:2.1'
+	compile 'com.xingliuhua:xlhratingbar_lib:3.1.1'
 }
 ```
 ### implement interface
-implement IRatingViewand  to custom your star UI.of course,you can see SimpleRatingView
+implement IRatingView and  to custom your star UI.of course,you can see SimpleRatingView
 ```java
 public interface IRatingView {
     /**
-     * get image resource state by posi and state
-     *
-     * @param posi
-     * @param state
-     * @return
+     * you can change your item style by state and position. eg:color,text size.
+     * @param state STATE_NONE,STATE_HALF,STATE_FULL
+     * @param position star index. start from 0
+     * @param starNums star item number
      */
-    int getStateRes(int posi, int state);
+    void setCurrentState(int state,int position,int starNums);
 
     /**
-     * @param rating
-     * @param numStars
-     * @param position from 0
-     * @return
-     */
-    int getCurrentState(float rating, int numStars, int position);
-
-    /**
-     * get a ImageView,you can set LinearLayout.LayoutParams for your ImageView
-     *
+     * return you start item view,you can custom item by positon
      * @param context
-     * @param posi    from 0
+     * @param position star index. start from 0
+     * @param starNums star item number
      * @return
      */
-    ImageView getRatingView(Context context,int numStars, int posi);
+    ViewGroup getRatingView(Context context,int position,int starNums);
 
     /**
      * not selected
@@ -58,54 +49,51 @@ public interface IRatingView {
 
 }
 ```
-SimpleRatingView:
+
+SimpleRatingView implemented the interface:
 ```java
 public class SimpleRatingView implements IRatingView {
 
+    ViewGroup mViewGroup;
+
     @Override
-    public int getStateRes(int posi, int state) {
-        int id = R.drawable.ic_star_border_red_400_36dp;
+    public void setCurrentState(int state, int position,int starNums) {
+
+        TextView textView = mViewGroup.findViewById(R.id.tv_state);
+        ImageView ivStar = mViewGroup.findViewById(R.id.iv_star);
         switch (state) {
-            case STATE_NONE:
-                id = R.drawable.ic_star_border_red_400_36dp;
+            case IRatingView.STATE_NONE:
+                ivStar.setImageResource(R.drawable.icon_star_none);
+                textView.setText("none");
                 break;
-            case STATE_HALF:
-                id = R.drawable.ic_star_half_red_400_36dp;
+            case IRatingView.STATE_HALF:
+                ivStar.setImageResource(R.drawable.icon_star_half);
+
+                textView.setText("half");
                 break;
-            case STATE_FULL:
-                id = R.drawable.ic_star_red_400_36dp;
-                break;
-            default:
+            case IRatingView.STATE_FULL:
+                ivStar.setImageResource(R.drawable.icon_star_full);
+
+                textView.setText("full");
+
                 break;
         }
-        return id;
     }
 
     @Override
-    public int getCurrentState(float rating, int numStars, int position) {
-        position++;
-        float dis = position - rating;
-        if (dis <= 0) {
-            return STATE_FULL;
-        }
-        if (dis == 0.5) {
-            return STATE_HALF;
-        }
-        if (dis > 0.5) {
-            return STATE_NONE;
-        }
-        return 0;
-    }
-
-
-    @Override
-    public ImageView getRatingView(Context context, int numStars, int posi) {
-        ImageView imageView = new ImageView(context);
-        return imageView;
+    public ViewGroup getRatingView(Context context, int position,int starNums) {
+        View inflate = View.inflate(context, R.layout.rating, null);
+        mViewGroup = (ViewGroup) inflate;
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParams.weight=1;
+        mViewGroup.setLayoutParams(layoutParams);
+        return mViewGroup;
     }
 }
 ```
+
 ### use XLHRatingBar in xml
+
 ```xml
 <com.example.xlhratingbar_lib.XLHRatingBar
 		xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -118,27 +106,23 @@ public class SimpleRatingView implements IRatingView {
         />
 ```
 you can set star num ,rating and ratingView class name
+
 ### set view
 you can set rating view by code or xml
 set view by code:
-```java
- xlhRatingBar.setRatingView(new SimpleRatingView5());
-```
-other:
 
 ```java
- xlhRatingBar.setNumStars(7);
- xlhRatingBar.setRating(5);
+ LinearLayout llContainer = (LinearLayout) findViewById(R.id.ll_container);
+ XLHRatingBar xlhRatingBar = new XLHRatingBar(this);
+ xlhRatingBar.setNumStars(3);
+ xlhRatingBar.setEnabled(false);//can not change rating by touch
+ xlhRatingBar.setRatingViewClassName("com.example.xlhratingbar.MyRatingView4");
  xlhRatingBar.setOnRatingChangeListener(new XLHRatingBar.OnRatingChangeListener() {
-            @Override
-            public void onChange(float rating, int numStars) {
-                Toast.makeText(getApplicationContext(), "rating:" + rating, Toast.LENGTH_SHORT).show();
-            }
+     @Override
+     public void onChange(float rating, int numStars) {
+  Toast.makeText(getApplicationContext(), "rating:" + rating, 0).show();
+     }
  });
-findViewById(R.id.btn_get_rating).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "rating:" + xlhRatingBar.getRating(), Toast.LENGTH_SHORT).show();
-            }
-});
+ llContainer.addView(xlhRatingBar);
 ```
+
