@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/XLHRatingBar.iml" filepath="$PROJECT_DIR$/XLHRatingBar.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/xlhratingbar/xlhratingbar.iml" filepath="$PROJECT_DIR$/xlhratingbar/xlhratingbar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xlhratingbar_lib/xlhratingbar_lib.iml" filepath="$PROJECT_DIR$/xlhratingbar_lib/xlhratingbar_lib.iml" />
     </modules>
   </component>
 </project>
