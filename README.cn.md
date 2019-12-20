@@ -1,30 +1,29 @@
 # XLhRatingBar
-[中文版](https://github.com/xingliuhua/XLHRatingBar/blob/master/README.cn.md)
-A custom Android ratingbar, no fixed style, everything is specified by you.
+[English](https://github.com/xingliuhua/XLHRatingBar/blob/master/README.md)
+一个自定义的android RatingBar，无固定样式，一切由你指定。
 <img src="https://github.com/xingliuhua/XLHRatingBar/blob/master/screenshot_1571735043111.jpg" height="330" width="190" >
 
-## Background
-We often use the rating bar to do some scoring, progress and rating functions. Android.widget.ratingbar
-can achieve some simple effects. We can useLayer list and Android: progressdrawable.
-We can also place some pictures and change the style of the pictures when clicking.
+## 背景
+我们常常要使用到RatingBar来做一些评分、进度、等级功能。android.widget.RatingBar可以实现一些简单效果，我们可以利用
+layer-list和android:progressDrawable。我们还可以放置一些图片，当点击的时候改变图片的样式来实现。
 
-If we want to achieve some complex effects, these solutions will be a bit troublesome：
-* half step size
-* The size of each star varies
-* 1、3、5 step size is 0.5, 2、4、6 stop size is 1.
-* Vertical or oblique
+我们如果想实现一些复杂的效果，这些方案就有点麻烦了：
+* 每次半颗星
+* 每颗星的大小不一
+* 第1、3、5是半颗，第2、4、6是整颗
+* 竖向或者斜向放置
 
-They are all so cumbersome, inflexible, and poorly scalable.
+他们都显得那么笨重，不够灵活，扩展性也非常差。
 
-## Feature
+## 功能
 
-* Each internal unit control (star) has three states: unchecked, half selected, and all selected.
-* The selection status of the internal unit control is determined by the user in the callback according to the location of the click.
-* Customize the style of each internal cell control. The user can return the control dynamically according to the location and state of the cell control.
-* Total number of custom property or code setting internal unit controls, selected.
-* Listening in the selected state.
+* 每个内部单元控件（就是星星）有三种状态：未选中、选中一半、全选中。
+* 内部单元控件的选中状态由用户在回调中根据点击的位置自己判断。
+* 自定义每个内部单元控件的样式，用户可根据单元控件的位置、状态动态返回控件。
+* 自定义属性或代码设置内部单元控件的总数，已选个数。
+* 选中状态的监听。
 
-## Install
+## 安装
 
 ```gradle
 dependencies {
@@ -33,15 +32,14 @@ dependencies {
 }
 
 
-## Usage
+## 使用
 ### SimpleRatingView
-The library and the default implementation of a simple style and function, the default total of 5 stars,
-each time the minimum can be changed by half. It can be used directly in code or XML files.
+该库以及默认实现了简单的样式及功能,默认共5颗星，每次最小可以改变半颗。可以直接在代码或xml文件中使用。
 ```java
 XLHRatingBar xlhRatingBar = new XLHRatingBar(this);
-//add to viewGroup
+//添加到容器布局中即可
 ```
-or xml file:
+或者在xml布局中
 ```xml
 <com.xingliuhua.xlhratingbar.XLHRatingBar
                 android:layout_width="match_parent"
@@ -49,10 +47,9 @@ or xml file:
                 app:numStars="5"
                 app:rating="2.5" />
 ```
-### custom style
-#### implements IRatingView
-Iratingview is the behavior abstraction of a single internal control. You can return corresponding
-values according to your own business requirements. Please refer to the default implementation of simpleratingview.
+### 自定义样式
+#### 实现接口IRatingView
+IRatingView就是单个内部控件的行为抽象，你可以根据自己的业务需求来返回对应的值，可以参考SimpleRatingView默认实现。
 ```java
 public interface IRatingView {
     /**
@@ -88,7 +85,7 @@ public interface IRatingView {
 }
 ```
 
-#### set class name in xml
+#### 在布局中引用并指定IRatingView的实现类。
 
 ```xml
 <com.example.xlhratingbar.XLHRatingBar
@@ -103,7 +100,7 @@ public interface IRatingView {
 ```
 
 
-#### or set class name in code
+#### 代码中使用
 
 
 ```java
@@ -121,10 +118,10 @@ public interface IRatingView {
  llContainer.addView(xlhRatingBar);
 ```
 
-### Maintainers
+### 维护者
 
 [@xingliuhua](https://github.com/xingliuhua).
 
-## Contributing
+### 如何贡献
 
-Feel free to dive in! [Open an issue] or submit PRs.
+非常欢迎你的加入! 提一个Issue 或者提交一个 Pull Request.
