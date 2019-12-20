@@ -1,6 +1,8 @@
-# XLhRatingBar
 [English](https://github.com/xingliuhua/XLHRatingBar/blob/master/README.md)
+# XLhRatingBar
+
 一个自定义的android RatingBar，无固定样式，一切由你指定。
+
 <img src="https://github.com/xingliuhua/XLHRatingBar/blob/master/screenshot_1571735043111.jpg" height="330" width="190" >
 
 ## 背景
