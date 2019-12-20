@@ -1,1 +1,1 @@
-include ':app', ':xlhratingbar_lib'
+include ':app', ':xlhratingbarlib'

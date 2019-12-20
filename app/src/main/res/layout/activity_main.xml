@@ -28,7 +28,7 @@
                 android:text="SimpleRatingView:step size 0.5" />
 
 
-            <com.example.xlhratingbar_lib.XLHRatingBar
+            <com.xingliuhua.xlhratingbar.XLHRatingBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:numStars="5"
@@ -46,12 +46,12 @@
                 android:text="MyRatingView1:step size 1" />
 
 
-            <com.example.xlhratingbar_lib.XLHRatingBar
+            <com.xingliuhua.xlhratingbar.XLHRatingBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:numStars="5"
                 app:rating="2"
-                app:ratingViewClass="com.example.xlhratingbar.MyRatingView1" />
+                app:ratingViewClass="com.xingliuhua.example.xlhratingbar.MyRatingView1" />
         </LinearLayout>
 
         <LinearLayout
@@ -65,12 +65,13 @@
                 android:text="MyRatingView2:bigger and bigger" />
 
 
-            <com.example.xlhratingbar_lib.XLHRatingBar
+            <com.xingliuhua.xlhratingbar.XLHRatingBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 app:numStars="5"
                 app:rating="2"
-                app:ratingViewClass="com.example.xlhratingbar.MyRatingView2" />
+                app:ratingViewClass="com.xingliuhua.example.xlhratingbar.MyRatingView2" />
         </LinearLayout>
 
         <LinearLayout
@@ -84,13 +85,13 @@
                 android:text="MyRatingView3:different sizes" />
 
 
-            <com.example.xlhratingbar_lib.XLHRatingBar
+            <com.xingliuhua.xlhratingbar.XLHRatingBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:numStars="5"
                 android:gravity="center_vertical"
+                app:numStars="5"
                 app:rating="2"
-                app:ratingViewClass="com.example.xlhratingbar.MyRatingView3" />
+                app:ratingViewClass="com.xingliuhua.example.xlhratingbar.MyRatingView3" />
         </LinearLayout>
 
         <LinearLayout
@@ -104,7 +105,7 @@
                 android:text="MyRatingView4:vertical" />
 
 
-            <com.example.xlhratingbar_lib.XLHRatingBar
+            <com.xingliuhua.xlhratingbar.XLHRatingBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"

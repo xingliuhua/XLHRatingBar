@@ -4,11 +4,11 @@ android {
     buildToolsVersion "28.0.3"
 
     defaultConfig {
-        applicationId "com.example.xlhratingbar"
+        applicationId "com.xingliuhua.example.xlhratingbar"
         minSdkVersion 15
-        targetSdkVersion 23
-        versionCode 7
-        versionName "3.1.1"
+        targetSdkVersion 28
+        versionCode 8
+        versionName "4.0"
     }
     buildTypes {
         release {
@@ -22,6 +22,6 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
-    compile project(':xlhratingbar_lib')
+    compile project(':xlhratingbarlib')
 }
 
