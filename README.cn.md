@@ -32,7 +32,7 @@ dependencies {
 	//other dependencies...
 	compile 'com.xingliuhua:xlhratingbar_lib:4.0'
 }
-
+```
 
 ## 使用
 ### SimpleRatingView
